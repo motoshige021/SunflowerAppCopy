@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SunflowerCopyApp</string>
+    <string name="plant_detail_title" translation_description="Title for the plant details screen where the user can see the details for a specific plant.">Plant detail</string>
+    <string name="gallery_title" translation_description="Title for the photo gallery screen">Photos by Unsplash</string>
+</resources>

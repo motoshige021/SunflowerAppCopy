@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_garden"
+    app:startDestination="@id/view_pager_fragment">
+
+    <fragment
+        android:id="@+id/view_pager_fragment"
+        android:name="com.github.motoshige021.sunflowercopyapp.HomeViewPagerFragment">
+        <action
+            android:id="@+id/action_view_page_fragment_to_plant_detail_fragment"
+            app:destination="@id/plant_detail_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plant_detail_fragment"
+        android:name="com.github.motoshige021.sunflowercopyapp.PlantDetailFragment"
+        android:label="@string/plant_detail_title" >
+        <action
+            android:id="@+id/action_plant_detail_fragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.github.motoshige021.sunflowercopyapp.GalleryFragment"
+        android:label="@string/gallery_title" />
+</navigation>
