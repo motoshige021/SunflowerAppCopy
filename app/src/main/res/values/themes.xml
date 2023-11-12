@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--style name="Theme.SunflowrCopyApp" parent="android:Theme.Material.Light.NoActionBar" -->
-    <style name="Theme.SunflowrCopyApp" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:statusBarColor">@color/purple_700</item>
+    <style name="Base.Theme.SunflowerCopyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/sunflower_green_500</item>
+        <item name="colorPrimaryVariant">@color/sunflower_green_700</item>
+        <item name="colorOnPrimary">@color/sunflower_yellow_500</item>
+        <item name="colorPrimaryDark">@color/sunflower_green_700</item>
+        <item name="colorOnSurface">@color/sunflower_black</item>
+        <item name="colorAccent">@color/sunflower_green_700</item>
+        <item name="colorSurface">@color/sunflower_gray_50</item>
+        <item name="colorSecondary">@color/sunflower_yellow_500</item>
+        <item name="android:colorBackground">@color/sunflower_green_500</item>
     </style>
+
+    <style name="Theme.SunflowerCopyApp" parent="Base.Theme.SunflowerCopyApp"/>
+
+    <style name="Theme.SunflowerCopyApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="windowActionBarOverlay">true</item>
+        <!--item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Sunflower.FAB</item -->
+    </style>
+
+    <style name="Theme.SunflowerCopyApp.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="TextAppearance.SunflowerCopyApp.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
 </resources>
