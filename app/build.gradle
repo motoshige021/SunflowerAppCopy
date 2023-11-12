@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
 }
 
 configurations.implementation {
@@ -11,6 +14,11 @@ configurations.implementation {
 android {
     namespace 'com.github.motoshige021.sunflowercopyapp'
     compileSdk 33
+
+    buildFeatures {
+        compose true
+        dataBinding true
+    }
 
     defaultConfig {
         applicationId "com.github.motoshige021.sunflowercopyapp"
@@ -38,9 +46,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        compose true
-    }
+
     composeOptions {
         kotlinCompilerExtensionVersion '1.2.0'
     }
@@ -48,9 +54,6 @@ android {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
-    }
-    dataBinding {
-        enabled = true
     }
 }
 

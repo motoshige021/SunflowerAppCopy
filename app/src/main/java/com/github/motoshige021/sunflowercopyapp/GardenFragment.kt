@@ -15,8 +15,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.sp
+import androidx.core.view.isGone
+import androidx.viewpager2.widget.ViewPager2
+import com.github.motoshige021.sunflowercopyapp.adapter.PLANT_LIST_PAGE_INDEX
+import com.github.motoshige021.sunflowercopyapp.databinding.FragmentGardenBinding
 
 class GardenFragment : Fragment() {
+    private lateinit var binding: FragmentGardenBinding
+
+    /* >>> Do Implement   <<< */
+    /* private val viewModel : GardenPlantingListViewModel */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -25,22 +33,28 @@ class GardenFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return ComposeView(requireContext()).apply {
-            setContent {
-                Greeting("this is Garden Fragment")
-            }
+    ): View {
+        binding = FragmentGardenBinding.inflate(inflater, container, false)
+
+        /* >>> Do Implement <<< */
+        /* GardenPlantingAdapter clas and SubscribeUi() */
+
+        binding.addPlant.setOnClickListener {
+            navigateToPlantListPage()
         }
+        subScribeUi(/* adapter ,*/ binding)
+
+        return binding.root
     }
 
-    @Composable
-    fun Greeting(message: String) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Text(text = message, color = Color.Blue, fontSize = 20.sp)
-        }
+    private fun subScribeUi(/* adapter: GardenPlantingAdapter,*/
+                            binding: FragmentGardenBinding) {
+        binding.hasPlanting = false // dummy
+        binding.gardenList.isGone = !binding.hasPlanting
+        binding.emptyLayout.isGone = binding.hasPlanting
+    }
+
+    private fun navigateToPlantListPage() {
+        requireActivity().findViewById<ViewPager2>(R.id.view_pager).currentItem = PLANT_LIST_PAGE_INDEX
     }
 }
