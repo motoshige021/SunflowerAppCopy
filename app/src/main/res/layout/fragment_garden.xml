@@ -22,9 +22,10 @@
             android:layout_marginTop="@dimen/margin_normal"
             app:spanCount="@integer/grid_columns"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:isGone="@{!hasPlanting}"
             tools:listitem="@layout/list_item_garden_planting"
             />
-        <!-- app:isGone="@{!hasPlanting}" -->
+
         <!-- android:clipToPadding = RecycleViewの余白を埋めるか？false 余白あり -->
         <!--  GardenPlantingAdapter.kt で list_item_garden_plantingをinflate -->
 
@@ -34,8 +35,9 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
+            app:isGone="@{hasPlanting}"
             >
-            <!-- app:isGone="@{hasPlanting}" -->
+
             <TextView
                 android:id="@+id/empty_garden"
                 android:layout_width="wrap_content"

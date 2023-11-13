@@ -50,8 +50,9 @@ class GardenFragment : Fragment() {
     private fun subScribeUi(/* adapter: GardenPlantingAdapter,*/
                             binding: FragmentGardenBinding) {
         binding.hasPlanting = false // dummy
-        binding.gardenList.isGone = !binding.hasPlanting
-        binding.emptyLayout.isGone = binding.hasPlanting
+        //binding.gardenList.isGone = !binding.hasPlanting
+        //binding.emptyLayout.isGone = binding.hasPlanting
+        // isGone問題は、BindingAdapter.ktの@BindingAdapter("isGone")を参照
     }
 
     private fun navigateToPlantListPage() {
