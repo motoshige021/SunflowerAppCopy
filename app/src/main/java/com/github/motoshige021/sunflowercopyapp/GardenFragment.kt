@@ -16,12 +16,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.sp
 import androidx.core.view.isGone
+import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.github.motoshige021.sunflowercopyapp.adapter.PLANT_LIST_PAGE_INDEX
 import com.github.motoshige021.sunflowercopyapp.databinding.FragmentGardenBinding
+import com.github.motoshige021.sunflowercopyapp.viewmodel.GardenPlantingListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GardenFragment : Fragment() {
     private lateinit var binding: FragmentGardenBinding
+
+    private val viewModel: GardenPlantingListViewModel by viewModels()
 
     /* >>> Do Implement   <<< */
     /* private val viewModel : GardenPlantingListViewModel */
@@ -49,7 +55,10 @@ class GardenFragment : Fragment() {
 
     private fun subScribeUi(/* adapter: GardenPlantingAdapter,*/
                             binding: FragmentGardenBinding) {
-        binding.hasPlanting = false // dummy
+        viewModel.plantAndGardenPlantings.observe(viewLifecycleOwner) { result ->
+            binding.hasPlanting = result.isNotEmpty()
+            // TODO実装 adapter.submitList(result) { ...
+        }
         //binding.gardenList.isGone = !binding.hasPlanting
         //binding.emptyLayout.isGone = binding.hasPlanting
         // isGone問題は、BindingAdapter.ktの@BindingAdapter("isGone")を参照
