@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
+import com.github.motoshige021.sunflowercopyapp.adapter.GardenPlantingAdapter
 import com.github.motoshige021.sunflowercopyapp.adapter.PLANT_LIST_PAGE_INDEX
 import com.github.motoshige021.sunflowercopyapp.databinding.FragmentGardenBinding
 import com.github.motoshige021.sunflowercopyapp.viewmodel.GardenPlantingListViewModel
@@ -41,23 +42,22 @@ class GardenFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentGardenBinding.inflate(inflater, container, false)
-
-        /* >>> Do Implement <<< */
-        /* GardenPlantingAdapter clas and SubscribeUi() */
+        val adapter = GardenPlantingAdapter()
+        binding.gardenList.adapter = adapter
 
         binding.addPlant.setOnClickListener {
             navigateToPlantListPage()
         }
-        subScribeUi(/* adapter ,*/ binding)
+        subScribeUi(adapter, binding)
 
         return binding.root
     }
 
-    private fun subScribeUi(/* adapter: GardenPlantingAdapter,*/
+    private fun subScribeUi(adapter: GardenPlantingAdapter,
                             binding: FragmentGardenBinding) {
         viewModel.plantAndGardenPlantings.observe(viewLifecycleOwner) { result ->
             binding.hasPlanting = result.isNotEmpty()
-            // TODO実装 adapter.submitList(result) { ...
+            adapter.submitList(result)
         }
         //binding.gardenList.isGone = !binding.hasPlanting
         //binding.emptyLayout.isGone = binding.hasPlanting

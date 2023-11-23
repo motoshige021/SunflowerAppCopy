@@ -6,4 +6,11 @@
     <string name="plant_list_title" translation_description="Title for the plant list screen where the user can see a list of plants available to add to their garden.">Plant list</string>
     <string name="garden_empty" translation_description="Text that is shown on the 'My Garden' screen when no plants have been added to the user's garden">Your garden is empty</string>
     <string name="add_plant" translation_description="Button text that prompts user to navigate to the Plant List to add plants to their empty garden.">Add plant</string>
+    <string name="ally_plant_item_image">Picture of plant</string>
+    <string name="plant_date_header">Planted</string>
+    <string name="warterd_date_header">Last Watered</string>
+    <plurals name="watering_next">
+        <item quantity="one">water tommorow</item>
+        <item quantity="other">water in %d days</item>
+    </plurals>
 </resources>

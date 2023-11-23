@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_plant_detail_fragment_to_galleryFragment"
             app:destination="@id/galleryFragment" />
+        <argument
+            android:name="plantId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/galleryFragment"
