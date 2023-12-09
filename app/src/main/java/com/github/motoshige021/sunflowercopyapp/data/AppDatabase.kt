@@ -5,7 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import com.github.motoshige021.sunflowercopyapp.utilties.DATABASE_NAME
+import com.github.motoshige021.sunflowercopyapp.utilties.PLANT_DATA_FILE_NAME
+import com.github.motoshige021.sunflowercopyapp.worker.SeedDatabaseWorker
 
 @Database(entities = [GardenPlanting::class, Plant::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
@@ -26,9 +32,19 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun buildDataBase(context: Context) : AppDatabase {
             return Room.databaseBuilder(context, AppDatabase::class.java,
-                                        DATABASE_NAME).build()
-            // TODO 初期データ設定の実装
-            //  setInputData(workDataOf(KEY_FILENAME to PLANT_DATA_FILENAME)
+                                        DATABASE_NAME)
+                .addCallback(
+                    object : RoomDatabase.Callback() {
+                        override public fun onCreate(db: SupportSQLiteDatabase) {
+                            super.onCreate(db)
+                            val requet = OneTimeWorkRequestBuilder<SeedDatabaseWorker>()
+                                .setInputData(workDataOf(SeedDatabaseWorker.KEY_FILE_NAME to PLANT_DATA_FILE_NAME))
+                                .build()
+                            WorkManager.getInstance(context).enqueue(requet)
+                        }
+                    }
+                )
+                .build()
         }
     }
 }

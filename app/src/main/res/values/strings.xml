@@ -9,6 +9,7 @@
     <string name="ally_plant_item_image">Picture of plant</string>
     <string name="plant_date_header">Planted</string>
     <string name="warterd_date_header">Last Watered</string>
+    <string name="menu_filter_by_zone">Filter by grow zone</string>
     <plurals name="watering_next">
         <item quantity="one">water tommorow</item>
         <item quantity="other">water in %d days</item>

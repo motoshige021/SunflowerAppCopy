@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import coil.load
 import com.github.motoshige021.sunflowercopyapp.utilties.TAG
 import kotlinx.coroutines.runBlocking
 import java.io.IOException
@@ -16,11 +17,19 @@ import java.util.concurrent.Executors
 
 @BindingAdapter("imageFromUrl")
 fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
+    // https://qiita.com/kaleidot725/items/b2ca56bfc5a8120efcea
+    if (!imageUrl.isNullOrEmpty()) {
+        view.load(imageUrl) {
+            this.crossfade(true)
+        }
+    }
+    /* サンプルがCoilライブラリを使用してたので差し替え-削除
     if (!imageUrl.isNullOrEmpty()) {
         runBlocking {
             setImageUri(view, imageUrl)
         }
     }
+    */
 }
 
 suspend fun setImageUri(view: ImageView, imageUrl: String) {

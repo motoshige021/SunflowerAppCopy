@@ -14,7 +14,9 @@ interface PlantDao {
     @Query("SELECT * FROM plants WHERE id = :plantId")
     fun getPlant(plantId: String) : Flow<Plant>
 
-    // SelectのみのGardenFragmentのテストにInserが必要なので先に作成
+    @Query("SELECT * FROM plants WHERE growZoneNumber = :growZoneNumber ORDER BY name")
+    fun getPlantsWithGrowZoneNumber(growZoneNumber: Int): Flow<List<Plant>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(plants: List<Plant>)
 }

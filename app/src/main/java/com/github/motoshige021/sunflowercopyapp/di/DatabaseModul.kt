@@ -24,7 +24,8 @@ class DatabaseModul {
         return AppDatabase.getInstance(context)
     }
 
-    fun providesPlantDao(appDataBase: AppDatabase): PlantDao {
+    @Provides
+    fun providePlantDao(appDataBase: AppDatabase): PlantDao {
         return appDataBase.plantDao()
     }
 
@@ -35,9 +36,8 @@ class DatabaseModul {
         return appDataBase.gardenPlantingDao()
     }
 
-
     private fun testDataInsert(appDataBase: AppDatabase) = runBlocking{
-        appDataBase.plantDao().insertAll(testPlants)
+        //appDataBase.plantDao().insertAll(testPlants)
         testGardenPlantingId = appDataBase.gardenPlantingDao().insertGardenPlanting(testGardenPlanting)
     }
 }

@@ -2,9 +2,15 @@ package com.github.motoshige021.sunflowercopyapp
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import com.github.motoshige021.sunflowercopyapp.adapter.MY_GARDEN_PAGE_INDEX
 import com.github.motoshige021.sunflowercopyapp.adapter.PLANT_LIST_PAGE_INDEX
 import com.github.motoshige021.sunflowercopyapp.adapter.SunflowerPagerAdapter
@@ -29,6 +35,8 @@ class HomeViewPagerFragment :Fragment() {
             tab.setIcon(getTabIcon(position))
             tab.text = getTabText(position)
         }.attach()
+
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
 
         return binding.root
     }

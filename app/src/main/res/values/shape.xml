@@ -16,4 +16,9 @@
         <item name="cornerSizeBottomRight">0dp</item>
         <item name="cornerSizeBottomLeft">@dimen/card_corner_radius</item>
     </style>
+
+    <style
+        name="ShapeAppearance.Sunflower.FAB"
+        parent="ShapeAppearance.MaterialComponents.SmallComponent" />
+
 </resources>
