@@ -11,4 +11,11 @@ class GardenPlantingRepository @Inject constructor(
     fun getPlantedGardens() : Flow<List<PlantAndGardenPlantings>> {
         return gardenPlantingDao.getPlantedGardens()
     }
+
+    fun isPlanted(plantId: String) = gardenPlantingDao.isPlanted(plantId)
+
+    suspend fun createGardenPlanting(plantId: String) {
+        val gardenPlanting = GardenPlanting(plantId)
+        gardenPlantingDao.insertGardenPlanting(gardenPlanting)
+    }
 }

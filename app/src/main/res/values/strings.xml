@@ -10,6 +10,15 @@
     <string name="plant_date_header">Planted</string>
     <string name="warterd_date_header">Last Watered</string>
     <string name="menu_filter_by_zone">Filter by grow zone</string>
+    <string name="share_text_plant">Check out the %s plant in the Android Sunflower app</string>
+    <string name="added_plant_to_garden">Added plant to garden</string>
+    <string name="watering_need_prefix">Watering needs</string>
+    <string name="ally_back">Navigate up</string>
+    <string name="menu_item_share_plant">Share</string>
+    <plurals name="watering_need_prefix">
+        <item quantity="one">every day</item>
+        <item quantity="other">every %d days</item>
+    </plurals>
     <plurals name="watering_next">
         <item quantity="one">water tommorow</item>
         <item quantity="other">water in %d days</item>

@@ -28,6 +28,10 @@ class PlantAdapter : ListAdapter<Plant, RecyclerView.ViewHolder>(PlantDiffCallba
             (itemView as ComposeView).setContent {
                 MdcTheme {
                     PlantListItemView(plant = plant) {
+                        // 引数 (plant, onclickListener) 最後の引数onClickListenerをラムダ式で
+                        // 設定する時、引数省略してラムダ式の実態を記述することができる
+                        // (plant,onclickListener) -> (plantId, () {....})
+                        // -> (plantId) { ... }
                         navigateToPlant(plant)
                     }
                 }
