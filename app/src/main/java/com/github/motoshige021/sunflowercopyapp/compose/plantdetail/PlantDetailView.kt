@@ -8,6 +8,7 @@ import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -19,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
@@ -36,6 +38,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.viewinterop.AndroidViewBinding
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -50,6 +53,7 @@ import com.github.motoshige021.sunflowercopyapp.compose.Dimens
 import com.github.motoshige021.sunflowercopyapp.compose.visible
 import com.github.motoshige021.sunflowercopyapp.data.Plant
 import com.github.motoshige021.sunflowercopyapp.databinding.ItemPlantDescriptionBinding
+import com.github.motoshige021.sunflowercopyapp.view.MaskedCardView
 import okhttp3.internal.immutableListOf
 
 // クラスのコンストラクタの引数にval修飾すると、クラス変数定義を兼ねる
@@ -213,6 +217,8 @@ private fun PlantDetailContent(
                             )
                         }
                         .alpha(contentAlpha())
+                        .clip(RoundedCornerShape(topStart = 0.dp, topEnd = 24.dp,
+                                                bottomStart = 24.dp, bottomEnd = 0.dp))
                 )
             }
 
