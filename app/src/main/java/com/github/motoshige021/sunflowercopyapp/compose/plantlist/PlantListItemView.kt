@@ -49,8 +49,7 @@ fun PlantListItemView(plant: Plant, onclick: () -> Unit) {
                 contentDescription = stringResource(id = R.string.ally_plant_item_image),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = dimensionResource(id = R.dimen.margin_normal))
-                    .wrapContentWidth(Alignment.CenterHorizontally)
+                    .height(dimensionResource(id = R.dimen.plant_item_image_height))
             )
             Text(
                 text = plant.name,
