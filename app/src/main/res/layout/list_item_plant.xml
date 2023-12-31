@@ -2,6 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- 注：このレイアウトファイルは使用していない。このレイアウトはComposeで実装している -->
+    <!--　このレイアウトファイルは、android studioのDesignタブでの表示に使用される -->
     <data>
         <variable
             name="clicklistener"

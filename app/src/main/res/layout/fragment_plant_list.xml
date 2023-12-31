@@ -24,6 +24,7 @@
             tools:context = "com.github.motoshige021.sunflowercopyapp.MainActivity"
             tools:listitem="@layout/list_item_plant"
             />
+            <!-- list_item_plant.xmlは使用せず、レイアウトをComposeで実装している  -->
     </FrameLayout>
 
 
