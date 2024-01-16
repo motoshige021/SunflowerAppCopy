@@ -29,7 +29,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.github.motoshige021.sunflowercopyapp.utilities.MainTestRunner"
         vectorDrawables {
             useSupportLibrary true
         }
@@ -111,7 +112,6 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
     debugImplementation "androidx.fragment:fragment-testing:1.6.2"
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
-    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
 }
 
 def getUnsplashAccess() {
